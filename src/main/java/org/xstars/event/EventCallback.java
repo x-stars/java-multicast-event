@@ -5,6 +5,7 @@ package org.xstars.event;
  * 
  * @param <A> 事件的参数的类型。
  */
+@FunctionalInterface
 public interface EventCallback<A> {
     /**
      * 调用当前事件回调函数。
