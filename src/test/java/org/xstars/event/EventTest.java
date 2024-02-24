@@ -21,7 +21,7 @@ public class EventTest {
 
     /**
      * 时间模式测试主入口点。
-     * 
+     *
      * @param args 程序启动参数。
      */
     public static void main(String[] args) {
