@@ -1,20 +1,22 @@
 package org.xstars.event.indi;
 
-import org.xstars.event.Event;
+import java.util.EventObject;
+
+import org.xstars.event.EventManager;
 import org.xstars.event.EventRegister;
-import org.xstars.event.SimpleEvent;
+import org.xstars.event.SimpleEventManager;
 
 public class Magician extends Person {
     private int secondsInMinute;
-    protected final Event<Object> timePassedOneMinuteEvent;
+    protected final EventManager<EventObject> timePassedOneMinuteEvent;
 
     public Magician() {
         super();
         this.secondsInMinute = 0;
-        this.timePassedOneMinuteEvent = new SimpleEvent<>();
+        this.timePassedOneMinuteEvent = new SimpleEventManager<>();
     }
 
-    public EventRegister<Object> timePassedOneMinuteEvent() {
+    public EventRegister<EventObject> timePassedOneMinuteEvent() {
         return this.timePassedOneMinuteEvent;
     }
 
@@ -24,7 +26,7 @@ public class Magician extends Person {
         this.secondsInMinute++;
         if (this.secondsInMinute == 59) {
             this.secondsInMinute = 0;
-            this.timePassedOneMinuteEvent.raiseEvent(this, null);
+            this.timePassedOneMinuteEvent.raiseEvent(new EventObject(this));
         }
     }
 }

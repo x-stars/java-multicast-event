@@ -1,5 +1,7 @@
 package org.xstars.event.indi;
 
+import java.util.EventObject;
+
 public final class TheElder extends Person {
     public static final TheElder he = new TheElder();
 
@@ -11,7 +13,7 @@ public final class TheElder extends Person {
         magician.timePassedOneMinuteEvent().addCallback(this::addOneSecond);
     }
 
-    private void addOneSecond(Object source, Object argument) {
+    private void addOneSecond(EventObject event) {
         this.seconds++;
     }
 }
